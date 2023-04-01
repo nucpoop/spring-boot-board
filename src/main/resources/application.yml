@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://jamjam.hopto.org:5432/dev
+    username: ${db.id}
+    password: ${db.pw}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: create
+      use-new-id-generator-mappings: false
+    show-sql: true
