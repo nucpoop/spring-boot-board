@@ -3,11 +3,10 @@ package com.nucpoop.springbootboard.service;
 import com.nucpoop.springbootboard.dto.BoardDTO;
 import com.nucpoop.springbootboard.entity.Board;
 import com.nucpoop.springbootboard.repository.BoardRepository;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Optional;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BoardService {
@@ -22,6 +21,7 @@ public class BoardService {
         return boardRepository.findAll();
     }
 
+    @Transactional
     public Board saveBoard(BoardDTO boardDTO) {
         Board board = new Board();
         board.setTitle(boardDTO.getTitle());
@@ -41,6 +41,7 @@ public class BoardService {
         return new Board();
     }
 
+    @Transactional
     public boolean deleteBoard(BoardDTO boardDTO) {
         boardRepository.deleteById(boardDTO.getId());
         return true;
